@@ -1,0 +1,46 @@
+﻿<Window x:Class="KgsResourceHelper.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="650" Width="800" Icon="app.ico">
+    <Grid>
+        <TabControl>
+            <TabItem Header="First">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition MaxHeight="30"></RowDefinition>
+                        <RowDefinition MaxHeight="30"></RowDefinition>
+                        <RowDefinition Height="0.5*"></RowDefinition>
+                        <RowDefinition Height="1.0*"></RowDefinition>
+                        <RowDefinition MaxHeight="30"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <!--<Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>-->
+                    <Button x:Name="btnSubmit" Grid.Row="0" Content="Submit" Click="btnSubmit_Click" />
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.7*"></ColumnDefinition>
+                            <ColumnDefinition Width="0.3*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBox x:Name="txtPageName" Grid.Column="0" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Hidden" Background="Azure" />
+                        <CheckBox x:Name="chkIsWriteFile" Grid.Column="1" FontSize="16" Foreground="Red">是否寫入檔案(打勾寫入)</CheckBox>
+                    </Grid>
+                    <TextBox x:Name="txtInput" Grid.Row="2" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" Background="Azure" />
+                    <Grid Grid.Row="3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBox x:Name="txtOutputCht" Grid.Column="0" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" />
+                        <TextBox x:Name="txtOutputChs" Grid.Column="1" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" />
+                        <TextBox x:Name="txtOutputEn" Grid.Column="2" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" />
+                    </Grid>
+                    <TextBlock x:Name="lblMemo" Grid.Row="4" FontSize="16" TextAlignment="Center" TextWrapping="Wrap" Foreground="Red" Background="LightGray" />
+                </Grid>
+            </TabItem>
+        </TabControl>
+        
+    </Grid>
+</Window>
