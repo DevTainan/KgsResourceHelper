@@ -104,25 +104,28 @@ namespace KgsResourceHelper
 
                 // ------以下開始寫檔案------
 
-                // 有模組名稱表示要寫到模組, 否則寫到Core專案
-                bool isCoreModule = string.IsNullOrEmpty(ModuleName) ? true : false;
-                var resourceList = new List<Resorce>();
+                if (chkIsWriteFile.IsChecked)
+                {
+                    // 有模組名稱表示要寫到模組, 否則寫到Core專案
+                    bool isCoreModule = string.IsNullOrEmpty(ModuleName) ? true : false;
+                    var resourceList = new List<Resorce>();
 
-                // 組合寫入檔案路徑
-                string filePath = isCoreModule ? GetModulePath(ModuleEnum.CoreModule, ModuleName) : GetModulePath(ModuleEnum.OtherModule, ModuleName);
+                    // 組合寫入檔案路徑
+                    string filePath = isCoreModule ? GetModulePath(ModuleEnum.CoreModule, ModuleName) : GetModulePath(ModuleEnum.OtherModule, ModuleName);
 
-                // 取得資源檔最後的數值
-                startNum = resource.GetLastNum(GetFullFilePath(isCoreModule, filePath), pageName);
+                    // 取得資源檔最後的數值
+                    startNum = resource.GetLastNum(GetFullFilePath(isCoreModule, filePath), pageName);
 
-                // 寫檔案
-                resourceList = resource.GetOutputClass(pageName, input, startNum);
-                WriteToFile(resource, isCoreModule, FileEnum.TW, filePath, resourceList);
+                    // 寫檔案
+                    resourceList = resource.GetOutputClass(pageName, input, startNum);
+                    WriteToFile(resource, isCoreModule, FileEnum.TW, filePath, resourceList);
 
-                resourceList = resource.GetOutputClass(pageName, output_chs, startNum);
-                WriteToFile(resource, isCoreModule, FileEnum.CN, filePath, resourceList);
+                    resourceList = resource.GetOutputClass(pageName, output_chs, startNum);
+                    WriteToFile(resource, isCoreModule, FileEnum.CN, filePath, resourceList);
 
-                resourceList = resource.GetOutputClass(pageName, output_en, startNum);
-                WriteToFile(resource, isCoreModule, FileEnum.EN, filePath, resourceList);
+                    resourceList = resource.GetOutputClass(pageName, output_en, startNum);
+                    WriteToFile(resource, isCoreModule, FileEnum.EN, filePath, resourceList); 
+                }
 
 
                 // 組字串
