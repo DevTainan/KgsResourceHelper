@@ -104,7 +104,7 @@ namespace KgsResourceHelper
 
                 // ------以下開始寫檔案------
 
-                if (chkIsWriteFile.IsChecked)
+                if (chkIsWriteFile.IsChecked.HasValue && chkIsWriteFile.IsChecked.Value)
                 {
                     // 有模組名稱表示要寫到模組, 否則寫到Core專案
                     bool isCoreModule = string.IsNullOrEmpty(ModuleName) ? true : false;
